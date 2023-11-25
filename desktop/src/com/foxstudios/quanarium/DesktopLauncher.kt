@@ -10,7 +10,7 @@ class DesktopLauncher {
             val config = Lwjgl3ApplicationConfiguration()
             config.setForegroundFPS(60)
             config.setTitle("Quanarium")
-            config.setWindowIcon("assets/badlogic.jpg")
+            config.setWindowIcon("assets/logo.png")
             Lwjgl3Application(Quanarium(), config)
         }
     }
