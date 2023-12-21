@@ -11,6 +11,7 @@ class DesktopLauncher {
             config.setForegroundFPS(60)
             config.setTitle("Quanarium")
             config.setWindowIcon("assets/logo.png")
+            config.setWindowedMode(800,480)
             Lwjgl3Application(Quanarium(), config)
         }
     }

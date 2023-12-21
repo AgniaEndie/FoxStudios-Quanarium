@@ -1,31 +1,23 @@
 package com.foxstudios.quanarium
 
-import com.badlogic.gdx.ApplicationAdapter
+import com.badlogic.gdx.Game
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
-import com.badlogic.gdx.utils.ScreenUtils
-import com.foxstudios.quanarium.entity.Player
+import com.foxstudios.quanarium.screen.MenuScreen
 
-class Quanarium : ApplicationAdapter() {
+class Quanarium : Game() {
     var batch: SpriteBatch? = null
-    val players: ArrayList<Player> = ArrayList()
+
     override fun create() {
         batch = SpriteBatch()
-        players.add(Player())
+        setScreen(MenuScreen(this))
     }
 
     override fun render() {
-        ScreenUtils.clear(1f, 0f, 0f, 1f)
-        batch!!.begin()
-        for (player in players) {
-            player.render(batch!!)
-        }
-        batch!!.end()
+        super.render()
     }
 
     override fun dispose() {
+        //Dispose Assets which you used in the whole Game
         batch!!.dispose()
-        for (player in players) {
-            player.dispose(players)
-        }
     }
 }
