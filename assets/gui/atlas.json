@@ -1,0 +1,31 @@
+{
+  BitmapFont: {
+    default-font: {
+      file: default.fnt
+    }
+  }
+  Color: {
+    white: {
+      hex: "#FFFFFF"
+    },
+    black:{
+      hex: "#000000"
+    },
+    red:{
+      hex: "#FF1111"
+    }
+  }
+  LabelStyle: {
+    default: {
+      font: default-font,
+      fontColor: white
+    },
+  }
+  TextFieldStyle:{
+    default:{
+      font: default-font
+      fontColor: black
+
+    }
+  }
+}

@@ -42,13 +42,14 @@ class MenuScreen(private val game: Quanarium) : ScreenAdapter() {
         table!!.row()
         addButton("Play!").addListener(object : ClickListener() {
             override fun clicked(event: InputEvent?, x: Float, y: Float) {
-//                game.screen = GameScreen(game)
-//                dispose()
+                game.screen = BeforePlaySettingsScreen(game)
+                dispose()
             }
         })
         addButton("Settings").addListener(object : ClickListener() {
             override fun clicked(event: InputEvent?, x: Float, y: Float) {
-                println("Settings Screen")
+                game.screen = SettingsScreen(game)
+                dispose()
             }
         })
         addButton("Quit").addListener(object : ClickListener() {
@@ -65,36 +66,23 @@ class MenuScreen(private val game: Quanarium) : ScreenAdapter() {
         table!!.row()
         return btn
     }
-    var f = 0f
+
     override fun render(delta: Float) {
+        game.toggleSettings()
         game.batch!!.begin()
         ScreenUtils.clear(0f, 208f, 255f, 1f)
         menuCam!!.update()
-        f += delta
-        println(f)
         stage!!.act()
         stage!!.draw()
-        if (Gdx.input.isTouched) {
-            game.screen = GameScreen(game)
-            dispose()
-        }
         game.batch!!.end()
     }
-
     override fun pause() {
         game.pause()
     }
-
     override fun resume() {
         game.resume()
     }
-
     override fun hide() {
 
     }
-
-    override fun dispose() {
-        super.dispose()
-    }
-
 }

@@ -3,6 +3,7 @@ package com.foxstudios.quanarium.screen
 import com.badlogic.gdx.Screen
 import com.badlogic.gdx.graphics.OrthographicCamera
 import com.badlogic.gdx.graphics.Texture
+import com.badlogic.gdx.utils.ScreenUtils
 import com.foxstudios.quanarium.Quanarium
 import com.foxstudios.quanarium.entity.Player
 
@@ -20,9 +21,11 @@ class GameScreen(private val game: Quanarium) : Screen {
     }
 
     override fun render(delta: Float) {
+        game.toggleSettings()
         globalCamera!!.update()
         game.batch!!.projectionMatrix = globalCamera!!.combined
         game.batch!!.begin()
+        ScreenUtils.clear(0f, 208f, 255f, 1f)
         game.batch!!.draw(testImage, 0f, 0f)
         for (player in players) {
             player.render(game.batch!!)
@@ -48,10 +51,8 @@ class GameScreen(private val game: Quanarium) : Screen {
 
     override fun dispose() {
         game.dispose()
-        game.batch!!.dispose()
 //      for (player in players) {
 //          player.dispose(players)
 //      }
-        game.batch!!.dispose()
     }
 }

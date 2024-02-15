@@ -59,7 +59,7 @@ class Player {
 
     fun dispose(players: ArrayList<Player>) {
         skin.dispose()
-        players.remove(return players.forEach { player: Player -> player.uuid == uuid })
+        //players.remove(return players.forEach { player: Player -> player.uuid == uuid })
     }
 
 }
